@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Placement Cell - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .company-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #2a5298;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary-custom {
+            background: #1e3c72;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+        }
+
+        .btn-primary-custom:hover {
+            background: #2a5298;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-briefcase me-2"></i>Placement Cell
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#statistics">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#recruiters">Recruiters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <a href="/student_login" class="btn btn-outline-light">
+                        <i class="fas fa-user-graduate me-1"></i>Student Login
+                    </a>
+                   
+                    <a href="/placement_login" class="btn btn-primary">
+                        <i class="fas fa-user-tie me-1"></i>University Login
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold mb-4">Welcome to Placement Cell</h1>
+            <p class="lead mb-4">Connecting Talent with Opportunity - Your Gateway to Professional Success</p>
+            <p class="mb-4">We bridge the gap between students and leading recruiters, ensuring a seamless placement
+                process.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#statistics" class="btn btn-light btn-lg">View Placement Records</a>
+                <a href="#recruiters" class="btn btn-outline-light btn-lg">Our Recruiters</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">About Placement Cell</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop"
+                        alt="About Placement Cell" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Building Careers, Shaping Futures</h3>
+                    <p class="text-muted">Our Placement Cell is committed to providing the best career opportunities to
+                        our students. We work tirelessly to connect students with top companies across various
+                        industries.</p>
+                    <h5 class="mt-4">Our Mission</h5>
+                    <p class="text-muted">To bridge the gap between academia and industry by providing comprehensive
+                        training, placement assistance, and career guidance to our students.</p>
+                    <h5 class="mt-4">What We Offer</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i>Industry partnerships and recruitment
+                            drives</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i>Resume building and interview
+                            preparation</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i>Career counseling and guidance</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i>Internship opportunities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Placement Statistics</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h3 class="fw-bold">500+</h3>
+                        <p class="text-muted mb-0">Students Placed</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-building fa-3x text-primary mb-3"></i>
+                        <h3 class="fw-bold">100+</h3>
+                        <p class="text-muted mb-0">Companies Visited</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
+                        <h3 class="fw-bold">95%</h3>
+                        <p class="text-muted mb-0">Placement Rate</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-rupee-sign fa-3x text-primary mb-3"></i>
+                        <h3 class="fw-bold">12 LPA</h3>
+                        <p class="text-muted mb-0">Highest Package</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiters Section -->
+    <section id="recruiters" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Recruiters</h2>
+                <p class="text-muted">Top companies that recruit from our campus</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Google</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Microsoft</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Amazon</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">TCS</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Infosys</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Wipro</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Accenture</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="company-logo">
+                        <span class="fw-bold text-muted">Cognizant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Programs</h2>
+                <p class="text-muted">Various programs we offer for students</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">M.Tech</h4>
+                            <p class="card-text text-muted">Master of Technology for higher studies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-business fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">B.Tech</h4>
+                            <p class="card-text text-muted">Bachelor of Technology in various specializations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">MCA</h4>
+                            <p class="card-text text-muted">Master of Computer Application</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="text-muted">Get in touch with our placement cell</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="login-card">
+                        <h4 class="mb-4">Send us a Message</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Your Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" placeholder="Enter subject">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="4" placeholder="Enter your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom text-white w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="login-card">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="mb-3">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <span>123 Education Campus, City, State - 123456</span>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-phone text-primary me-3"></i>
+                            <span>+91 1234567890</span>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <span>placement@campus.edu</span>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-clock text-primary me-3"></i>
+                            <span>Mon - Fri: 9:00 AM - 5:00 PM</span>
+                        </div>
+                        <hr>
+                        <h5 class="mb-3">Follow Us</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Placement Cell. All Rights Reserved.</p>
+            <p class="mb-0"><small>Designed with <i class="fas fa-heart text-danger"></i> by Placement Team</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
