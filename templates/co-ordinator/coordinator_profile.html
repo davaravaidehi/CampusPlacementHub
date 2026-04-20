@@ -1,0 +1,149 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile - {{ coordinator.full_name }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="{% static 'css/coordinator_dashboard.css' %}" rel="stylesheet">
+    <style>
+        .profile-row { display: flex; gap: 2rem; align-items: end; margin-bottom: 1.5rem; }
+        .profile-row .form-floating { flex: 1; }
+        .main-content.profile-full { margin-left: 0; padding: 2rem 1rem; }
+        @media (min-width: 992px) { .main-content.profile-full { margin-left: var(--sidebar-width); } }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{% static 'image/logo.png' %}" alt="Logo" style="height: 40px;" onerror="this.src='https://via.placeholder.com/120x40/1e3c72/ffffff?text=CPH'">
+            <h6 class="mt-2 mb-0 fw-bold">Placement Cell</h6>
+        </div>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="{% url 'co_ordinatorapp:coordinator_dashboard' %}">
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+            </a>
+            <a class="nav-link active" href="{% url 'co_ordinatorapp:coordinator_profile' %}">
+                <i class="fas fa-user me-2"></i> Profile
+            </a>
+            <a class="nav-link" href="{% url 'co_ordinatorapp:coordinator_login' %}?logout=1">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            </a>
+        </nav>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-white fw-bold d-none d-lg-block">Profile</a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text text-white">{{ coordinator.full_name }}</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full Width Main -->
+    <main class="main-content profile-full">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="card shadow-xl border-0">
+                        <div class="card-header bg-gradient-primary text-white text-center py-5">
+                            <i class="fas fa-user-cog fa-4x mb-4 opacity-90"></i>
+                            <h1 class="display-5 fw-bold mb-2">Coordinator Profile</h1>
+                            <p class="lead mb-0">{{ coordinator.department }}</p>
+                        </div>
+                        <div class="card-body p-5">
+                            <form id="profileForm">
+                                <div class="profile-row">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control form-control-lg" id="fullName" placeholder="Full Name" value="{{ coordinator.full_name }}" required disabled>
+                                        <label for="fullName">Full Name *</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control form-control-lg" id="dept" placeholder="Department" value="{{ coordinator.department }}" disabled>
+                                        <label for="dept">Department</label>
+                                    </div>
+                                </div>
+
+                                <div class="profile-row">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control form-control-lg" id="email" placeholder="Email" value="{{ coordinator.email }}" required>
+                                        <label for="email">Email *</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control form-control-lg" id="phone" placeholder="Phone" value="{{ coordinator.phone }}" required>
+                                        <label for="phone">Phone No. *</label>
+                                    </div>
+                                </div>
+
+                                <hr class="my-5 border-3 border-primary opacity-25">
+
+                                <h4 class="fw-bold text-primary mb-4 text-center">Change Password</h4>
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control form-control-lg" id="oldPass" placeholder="Old Password">
+                                            <label for="oldPass">Old Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control form-control-lg" id="newPass" placeholder="New Password">
+                                            <label for="newPass">New Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control form-control-lg" id="confirmPass" placeholder="Confirm Password">
+                                            <label for="confirmPass">Confirm New Password</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-5">
+                                    <a href="{% url 'co_ordinatorapp:coordinator_dashboard' %}" class="btn btn-outline-secondary btn-lg px-5 me-3">
+                                        <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                                    </a>
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                                        <i class="fas fa-save me-2"></i>Update Profile
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer bg-light text-center py-4 border-top-0">
+                            <div class="row">
+                                <div class="col">
+                                    <i class="fas fa-calendar-check text-success fa-lg mb-2 d-block"></i>
+                                    <small class="text-muted fw-semibold">Joined {{ coordinator.created_at|date:"M d, Y" }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/coordinator_dashboard.js' %}"></script>
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', e => {
+            e.preventDefault();
+            // Mock validation
+            const newPass = document.getElementById('newPass').value;
+            const confirmPass = document.getElementById('confirmPass').value;
+            if (newPass && newPass !== confirmPass) {
+                alert('New passwords do not match!');
+                return;
+            }
+            alert('Profile updated successfully!');
+            window.location.href = "{% url 'co_ordinatorapp:coordinator_dashboard' %}";
+        });
+    </script>
+</body>
+</html>

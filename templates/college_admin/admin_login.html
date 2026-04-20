@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login – Campus Placement Hub</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .card h2 { text-align: center; color: #0f3460; font-size: 1.7rem; margin-bottom: 6px; }
+    .card p.subtitle { text-align: center; color: #777; font-size: 0.9rem; margin-bottom: 28px; }
+    .error-msg {
+      background: #ffe0e0; color: #c0392b;
+      padding: 10px 14px; border-radius: 6px;
+      font-size: 0.88rem; margin-bottom: 18px;
+      border-left: 4px solid #c0392b;
+    }
+    label { display: block; font-size: 0.88rem; font-weight: 600; color: #333; margin-bottom: 5px; }
+    input {
+      width: 100%; padding: 10px 14px;
+      border: 1.5px solid #ddd; border-radius: 8px;
+      font-size: 0.95rem; margin-bottom: 18px;
+      transition: border-color 0.2s; outline: none;
+    }
+    input:focus { border-color: #0f3460; }
+    button[type="submit"] {
+      width: 100%; padding: 12px;
+      background: #0f3460; color: #fff;
+      font-size: 1rem; font-weight: 600;
+      border: none; border-radius: 8px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    button[type="submit"]:hover { background: #16213e; }
+    .register-link { text-align: center; margin-top: 18px; font-size: 0.88rem; color: #555; }
+    .register-link a { color: #0f3460; font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🔐 Admin Login</h2>
+    <p class="subtitle">Campus Placement Hub – College Admin Portal</p>
+ 
+    {% if error %}
+      <div class="error-msg">{{ error }}</div>
+    {% endif %}
+ 
+    <form method="POST" action="/college_admin/login/">
+      {% csrf_token %}
+ 
+      <label for="email">Admin Email ID</label>
+      <input type="email" id="email" name="email"
+             placeholder="admin@college.edu" required />
+ 
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password"
+             placeholder="Enter your password" required />
+ 
+      <button type="submit">Login</button>
+    </form>
+ 
+    <div class="register-link">
+      New admin? <a href="/college_admin/register/">Register here</a>
+    </div>
+  </div>
+</body>
+</html>

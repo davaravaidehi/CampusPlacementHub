@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update Admin – Campus Placement Hub</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    }
+    .card {
+      background: #fff; border-radius: 12px;
+      padding: 40px 36px; width: 100%; max-width: 460px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .card h2 { text-align: center; color: #0f3460; font-size: 1.6rem; margin-bottom: 24px; }
+    label { display: block; font-size: 0.88rem; font-weight: 600; color: #333; margin-bottom: 5px; }
+    input {
+      width: 100%; padding: 10px 14px;
+      border: 1.5px solid #ddd; border-radius: 8px;
+      font-size: 0.95rem; margin-bottom: 18px;
+      outline: none; transition: border-color 0.2s;
+    }
+    input:focus { border-color: #0f3460; }
+    button[type="submit"] {
+      width: 100%; padding: 12px;
+      background: #0f3460; color: #fff;
+      font-size: 1rem; font-weight: 600;
+      border: none; border-radius: 8px; cursor: pointer;
+    }
+    button[type="submit"]:hover { background: #16213e; }
+    .back-link { text-align: center; margin-top: 16px; font-size: 0.88rem; }
+    .back-link a { color: #0f3460; font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>✏️ Update Admin Profile</h2>
+ 
+    <form method="POST" action="/college_admin/do-update/{{ admin.id }}/">
+      {% csrf_token %}
+ 
+      <label>Full Name</label>
+      <input type="text" name="full_name" value="{{ admin.full_name }}" required />
+ 
+      <label>Admin Email ID</label>
+      <input type="email" name="email" value="{{ admin.email }}" required />
+ 
+      <label>College Name</label>
+      <input type="text" name="college_name" value="{{ admin.college_name }}" required />
+ 
+      <button type="submit">Save Changes</button>
+    </form>
+ 
+    <div class="back-link">
+      <a href="/college_admin/list/">← Back to Admin List</a>
+    </div>
+  </div>
+</body>
+</html>
+ 

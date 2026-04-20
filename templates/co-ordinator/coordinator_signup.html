@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Co-ordinator Sign Up - Placement Cell</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex; align-items: center;
+            justify-content: center; padding: 40px 0;
+        }
+        .login-container { max-width: 600px; width: 100%; padding: 20px; }
+        .login-card {
+            background: white; border-radius: 15px;
+            padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        .login-header { text-align: center; margin-bottom: 30px; }
+        .login-header i { font-size: 50px; color: #1e3c72; margin-bottom: 15px; }
+        .login-header h3 { color: #1e3c72; font-weight: 600; }
+        .form-control {
+            border-radius: 10px; padding: 12px 15px;
+            border: 2px solid #e0e0e0; transition: all 0.3s;
+        }
+        .form-control:focus { border-color: #1e3c72; box-shadow: none; }
+        .btn-login {
+            background: #1e3c72; color: white; border: none;
+            border-radius: 10px; padding: 12px; font-weight: 600;
+            width: 100%; transition: all 0.3s;
+        }
+        .btn-login:hover { background: #2a5298; transform: translateY(-2px); }
+        .form-label { font-weight: 500; color: #333; margin-bottom: 8px; }
+        .register-link { text-align: center; margin-top: 20px; }
+        .register-link a { color: #1e3c72; font-weight: 600; text-decoration: none; }
+        .register-link a:hover { text-decoration: underline; }
+        .back-home {
+            position: absolute; top: 20px; left: 20px;
+            color: white; text-decoration: none; font-weight: 500;
+        }
+        .back-home:hover { color: #ddd; }
+        .divider { display: flex; align-items: center; margin: 20px 0; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #e0e0e0; }
+        .divider span { padding: 0 10px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-home">
+        <i class="fas fa-arrow-left me-2"></i>Back to Home
+    </a>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-user-tie"></i>
+                <h3>Co-ordinator Sign Up</h3>
+                <p class="text-muted">Create your coordinator account</p>
+            </div>
+
+            <form action="{% url 'co_ordinatorapp:coordinator_signup' %}" method="post" novalidate>
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" name="first_name"
+                               class="form-control {% if errors.first_name %}is-invalid{% endif %}"
+                               placeholder="Enter first name"
+                               value="{{ form_data.first_name|default:'' }}" required>
+                        {% if errors.first_name %}
+                            <div class="invalid-feedback">{{ errors.first_name }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" name="last_name"
+                               class="form-control {% if errors.last_name %}is-invalid{% endif %}"
+                               placeholder="Enter last name"
+                               value="{{ form_data.last_name|default:'' }}" required>
+                        {% if errors.last_name %}
+                            <div class="invalid-feedback">{{ errors.last_name }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email"
+                           class="form-control {% if errors.email %}is-invalid{% endif %}"
+                           placeholder="Enter your email"
+                           value="{{ form_data.email|default:'' }}" required>
+                    {% if errors.email %}
+                        <div class="invalid-feedback">{{ errors.email }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" name="phone" maxlength="10"
+                           class="form-control {% if errors.phone %}is-invalid{% endif %}"
+                           placeholder="Enter 10-digit phone number"
+                           value="{{ form_data.phone|default:'' }}" required>
+                    {% if errors.phone %}
+                        <div class="invalid-feedback">{{ errors.phone }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Department</label>
+                    <select name="department"
+                            class="form-control {% if errors.department %}is-invalid{% endif %}" required>
+                        <option value="">Select Department</option>
+                        <option value="CMPICA"  {% if form_data.department == 'CMPICA'  %}selected{% endif %}>CMPICA</option>
+                        <option value="CSPIT"   {% if form_data.department == 'CSPIT'   %}selected{% endif %}>CSPIT</option>
+                        <option value="DEPSTAR" {% if form_data.department == 'DEPSTAR' %}selected{% endif %}>DEPSTAR</option>
+                    </select>
+                    {% if errors.department %}
+                        <div class="invalid-feedback">{{ errors.department }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password"
+                           class="form-control {% if errors.password %}is-invalid{% endif %}"
+                           placeholder="Create a password (min 8 characters)" required>
+                    {% if errors.password %}
+                        <div class="invalid-feedback">{{ errors.password }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" name="confirm_password"
+                           class="form-control {% if errors.confirm_password %}is-invalid{% endif %}"
+                           placeholder="Confirm your password" required>
+                    {% if errors.confirm_password %}
+                        <div class="invalid-feedback">{{ errors.confirm_password }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <label class="form-check-label" for="terms">
+                            I agree to the <a href="#">Terms and Conditions</a>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-login">
+                    <i class="fas fa-user-plus me-2"></i>Sign Up
+                </button>
+            </form>
+
+            <div class="divider"><span>OR</span></div>
+
+            <div class="register-link">
+                <p class="mb-2">Already have an account?</p>
+                <a href="{% url 'co_ordinatorapp:coordinator_login' %}">Login Here</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
